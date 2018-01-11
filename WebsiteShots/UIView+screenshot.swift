@@ -33,7 +33,7 @@ extension UIView {
         
         let scale = image.scale
         let scaledRect = CGRect(x: rect.origin.x * scale, y: rect.origin.y * scale, width: rect.size.width * scale, height: rect.size.height * scale)
-        guard let cgImage = image.cgImage?.cropping(to: scaledRect) else { return nil }
+        guard let cgImage = image.cgImage?.cropping(to: scaledRect) else { return wholeImage }
         return UIImage(cgImage: cgImage, scale: scale, orientation: .up)
     }
 }

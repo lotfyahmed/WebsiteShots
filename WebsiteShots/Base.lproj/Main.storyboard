@@ -20,49 +20,109 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebsiteShots" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="WebsiteShots" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4OS-ls-40r">
+                                <rect key="frame" x="0.0" y="66" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.013436276465654373" green="0.66948151588439941" blue="0.63617724180221558" alpha="0.15087221746575341" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="W6a-TI-yq0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="go"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.14854338765144348" green="0.56476682424545288" blue="0.5494655966758728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="y6L-zN-mBC"/>
+                                </connections>
+                            </textField>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iZb-zr-Qdc">
+                                <rect key="frame" x="-20" y="98" width="415" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="up1-mY-Vre"/>
+                                </constraints>
+                            </progressView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBQ-XN-BNn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYm-oY-SRy">
-                                <rect key="frame" x="156" y="628" width="63" height="30"/>
-                                <state key="normal" title="Add Area">
-                                    <color key="titleColor" red="1" green="0.98895669860000002" blue="0.1992506644" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addArea:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m3z-41-1q9"/>
-                                    <segue destination="OxN-2C-yJL" kind="show" id="BDj-b1-eYT"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8e-zU-SK8">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="&lt;" id="80P-FS-kjX">
+                                        <connections>
+                                            <action selector="backWithSender:" destination="BYZ-38-t0r" id="StQ-t7-1TB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="zDv-Ct-UjR"/>
+                                    <barButtonItem title="&gt;" id="rsH-1b-Bho">
+                                        <connections>
+                                            <action selector="forwardWithSender:" destination="BYZ-38-t0r" id="XzM-A7-qGD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fIM-Br-cgE"/>
+                                    <barButtonItem title="Add Area" id="1KR-Vv-paX">
+                                        <color key="tintColor" red="0.08235294118" green="0.61568627450000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="addAreaWithSender:" destination="BYZ-38-t0r" id="L4M-kQ-OmI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cnS-rp-jpe"/>
+                                    <barButtonItem title="R" id="GWE-Ze-m8I">
+                                        <connections>
+                                            <action selector="reloadWithSender:" destination="BYZ-38-t0r" id="Aqe-6z-CKQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WBQ-XN-BNn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MrS-rN-Ag6"/>
+                            <constraint firstItem="v8e-zU-SK8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1I9-aF-4Xs"/>
+                            <constraint firstItem="4OS-ls-40r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3mC-YD-ASh"/>
+                            <constraint firstAttribute="trailing" secondItem="iZb-zr-Qdc" secondAttribute="trailing" constant="-20" id="7aG-kW-E7c"/>
+                            <constraint firstItem="WBQ-XN-BNn" firstAttribute="top" secondItem="iZb-zr-Qdc" secondAttribute="bottom" id="KZx-7L-K7H"/>
+                            <constraint firstItem="iZb-zr-Qdc" firstAttribute="top" secondItem="4OS-ls-40r" secondAttribute="bottom" constant="2" id="MtV-py-0dL"/>
                             <constraint firstItem="WBQ-XN-BNn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NAj-zL-81g"/>
+                            <constraint firstAttribute="trailing" secondItem="4OS-ls-40r" secondAttribute="trailing" id="NN1-I1-pue"/>
+                            <constraint firstItem="v8e-zU-SK8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PzD-dl-aKz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WBQ-XN-BNn" secondAttribute="bottom" id="XLW-oO-aDG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BYm-oY-SRy" secondAttribute="bottom" constant="9" id="YoX-vS-st1"/>
-                            <constraint firstItem="BYm-oY-SRy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rdS-m9-rab"/>
+                            <constraint firstItem="iZb-zr-Qdc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-20" id="g1r-PL-shY"/>
+                            <constraint firstItem="4OS-ls-40r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="k8r-3x-Udl"/>
+                            <constraint firstItem="v8e-zU-SK8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="muQ-9X-3Hh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WBQ-XN-BNn" secondAttribute="trailing" id="z2U-J2-hjf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fdy-mN-Om7"/>
+                    <navigationItem key="navigationItem" id="z2S-VD-4GE">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="80P-FS-kjX" id="Xrr-1k-StQ"/>
+                        <outlet property="barView" destination="v8e-zU-SK8" id="b0n-Ha-u5i"/>
+                        <outlet property="forwardButton" destination="rsH-1b-Bho" id="gwZ-3k-9CF"/>
+                        <outlet property="progressView" destination="iZb-zr-Qdc" id="mRb-3t-Ofs"/>
+                        <outlet property="reloadButton" destination="GWE-Ze-m8I" id="NMO-nW-I9S"/>
+                        <outlet property="urlField" destination="4OS-ls-40r" id="8ud-F1-f7u"/>
                         <outlet property="webView" destination="WBQ-XN-BNn" id="iFQ-Xq-D3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455.19999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="1247" y="24"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fjB-9E-ZzP">
@@ -75,7 +135,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8um-pA-8SV"/>
+                        <segue destination="OxN-2C-yJL" kind="relationship" relationship="rootViewController" id="mNL-sd-EHk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdP-1C-Rbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -94,8 +154,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iD7-ve-Yfd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="880-wv-1gI">
-                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="0.0" id="xpY-GH-L5J">
                                     <size key="itemSize" width="185" height="225"/>
@@ -104,14 +172,14 @@
                                     <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="8rb-8Z-0Jl" customClass="CollectionViewCell" customModule="CollectionViewDataSourceBlog" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="8rb-8Z-0Jl" customClass="CollectionViewCell" customModule="WebsiteShots" customModuleProvider="target">
                                         <rect key="frame" x="2" y="2" width="185" height="225"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="185" height="225"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VOL-4U-FEL">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VOL-4U-FEL">
                                                     <rect key="frame" x="0.0" y="0.0" width="185" height="157.5"/>
                                                     <color key="backgroundColor" red="1" green="0.52156862749999999" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
@@ -144,23 +212,46 @@
                                     <outlet property="dataSource" destination="OxN-2C-yJL" id="7pg-RW-xfl"/>
                                 </connections>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqT-Zy-mCa">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Delete All" id="Qaz-Qq-jbt">
+                                        <connections>
+                                            <action selector="deleteAllAction:" destination="OxN-2C-yJL" id="3Ad-c3-etJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="AKj-pU-zzq"/>
+                                    <barButtonItem title="Add" id="Yje-hL-3Bv">
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="bwo-cc-8Wf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="880-wv-1gI" secondAttribute="bottom" id="Rtc-n5-UbE"/>
-                            <constraint firstAttribute="trailing" secondItem="880-wv-1gI" secondAttribute="trailing" id="sEc-Xl-NB4"/>
-                            <constraint firstItem="880-wv-1gI" firstAttribute="leading" secondItem="itO-Be-wEj" secondAttribute="leading" id="sgT-Rl-QWV"/>
-                            <constraint firstItem="880-wv-1gI" firstAttribute="top" secondItem="x5g-xu-s9y" secondAttribute="bottom" constant="20" id="t6R-4I-iid"/>
+                            <constraint firstItem="880-wv-1gI" firstAttribute="leading" secondItem="QU5-E3-sUK" secondAttribute="leading" id="BAb-K9-A3V"/>
+                            <constraint firstItem="iD7-ve-Yfd" firstAttribute="leading" secondItem="QU5-E3-sUK" secondAttribute="leading" id="D23-LA-iq2"/>
+                            <constraint firstItem="880-wv-1gI" firstAttribute="trailing" secondItem="QU5-E3-sUK" secondAttribute="trailing" id="L1M-7M-8TH"/>
+                            <constraint firstItem="880-wv-1gI" firstAttribute="top" secondItem="x5g-xu-s9y" secondAttribute="bottom" id="ZDe-7m-9k3"/>
+                            <constraint firstItem="KdS-Iu-Qt1" firstAttribute="top" secondItem="880-wv-1gI" secondAttribute="bottom" id="iBW-R2-jNb"/>
+                            <constraint firstItem="iD7-ve-Yfd" firstAttribute="top" secondItem="x5g-xu-s9y" secondAttribute="bottom" id="m3R-VK-8rE"/>
+                            <constraint firstItem="iD7-ve-Yfd" firstAttribute="trailing" secondItem="QU5-E3-sUK" secondAttribute="trailing" id="oS5-NO-CKI"/>
+                            <constraint firstItem="KdS-Iu-Qt1" firstAttribute="top" secondItem="iD7-ve-Yfd" secondAttribute="bottom" id="p44-ux-cvQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QU5-E3-sUK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="BLP-BD-bGe"/>
                     <connections>
                         <outlet property="collectionView" destination="880-wv-1gI" id="bI7-7o-A2c"/>
+                        <outlet property="webView" destination="iD7-ve-Yfd" id="blj-NX-2Nn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hkm-jP-BB5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1330" y="107"/>
+            <point key="canvasLocation" x="260" y="45"/>
         </scene>
     </scenes>
 </document>
